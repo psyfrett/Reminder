@@ -12,26 +12,24 @@ def welcome_message():
     print("Welcome to the simplest reminder (not to be used for work)!\n")
 
 def ask_for_reminder():
-    ''' This is a function and requires a comment to make pylint happy'''
-    #reminder_name = input("What do you want to call this reminder? ")
-    reminder_name = "Take over world with python"
+    ''' takes in minutes to remind and opens url'''
+    reminder_name = input("What do you want to call this reminder? (optional) ")
     reminder_time = input("In how many minutes should I remind you? ")
+
+    if len(reminder_name) < 1:
+        reminder_name = "Take over world with python"
 
     minute_increase = int(reminder_time)
     if minute_increase < 1:
         raise ValueError("reminder must be greater than 1")
 
-    #hours_increase = int(reminder_time[:2])
-    #minute_increase = int(reminder_time[2:])
-
-    #print(datetime.now())
     time_to_remind = datetime.now() + timedelta(minutes=minute_increase)
 
     print("I'll remind you of [{0}] at {1}.".format(reminder_name, time_to_remind.strftime("%I:%M")))
     print()
 
-    seconds_in_minutes = 60
-    zzz(minute_increase * seconds_in_minutes)
+    seconds_in_minute = 60
+    zzz(minute_increase * seconds_in_minute)
 
     print("Hey!")
     print("HEY!\n")
